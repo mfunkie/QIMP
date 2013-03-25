@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+      <title>QIMP - Code Trivia</title>
+
+      <link rel="shortcut icon" href="favicon.ico" />
+      <link rel="stylesheet" media="screen, projection" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/themes/base/jquery-ui.css">
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js"></script>
+
+      <!--
+      So far I understand the idea of angular but I don't know that I agree with it. I'm sure since Google is
+      behind it they've taken in to consideration many facets that I'm not aware of but the merging of the
+      business logic (js) with the visual presentation (html, css) you're commiting to maintaining them that
+      way.
+      -->
+      <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular.min.js"></script>-->
+
+      <link rel="stylesheet" media="screen, projection" href="/quiz.css">
+      <script src="/socket.io/socket.io.js"></script>
+      <script src="/script.js"></script>
+      <script>
+         GameScript();
+      </script>
+   </head>
+   <body>
+      <div class="site-wrapper">
+   		<header class="site-header"><img class="logo" src="/qimp-logo.png"/></header>
+   		<section class="js-container form">
+   			Check javascript console for output
+   		</section>
+         <footer class="site-footer">
+            <p><img class="footer-logo" src="/qimp-footer-logo.png"/> Code trivia brought to you by <a href="http://www.boomtownroi.com" target="_new">BoomTown</a>.</p>
+         </footer>
+      </div> <!-- end site-wrapper -->
+
+   </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html ng-app>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+      <title>QIMP - Code Trivia - Admin</title>
+
+      <link rel="shortcut icon" href="favicon.ico" />
+      <link rel="stylesheet" media="screen, projection" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/themes/base/jquery-ui.css">
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular.min.js"></script>
+
+      <link rel="stylesheet" media="screen, projection" href="/quiz.css">
+      <link rel="stylesheet" media="screen, projection" href="/admin.css">
+      <script src="/socket.io/socket.io.js"></script>
+      <script src="/admin.js"></script>
+   </head>
+   <body>
+      <div class="site-wrapper" ng-controller="AdminController">
+   		<header class="site-header"><img class="logo" src="/qimp-logo.png"/></header>
+   		<section id="console" class="js-container form" ng-show="currentSection == 'console'">
+            <input type="button" value="Start Game" ng-click="start_clicked()" />
+            <input type="button" value="Next Question" ng-click="next_clicked()" />
+            <div class="log">
+               <ul  ng-repeat="line in theLog">
+                  {{line}}
+               </ul>
+            </div>
+   		</section>
+         <footer class="site-footer">
+            <p><img class="footer-logo" src="/qimp-footer-logo.png"/> Code trivia brought to you by <a href="http://www.boomtownroi.com" target="_new">BoomTown</a>.</p>
+         </footer>
+      </div> <!-- end site-wrapper -->
+   </body>
+</html>

@@ -1,0 +1,21 @@
+{code:"return input.reduce(function(a,b) { return a+b; });",formatted:"return input.reduce(function(a,b) { return a+b; });",timesCorrect:0,timesIncorrect:0}
+{code:"return Math.max.apply(null,input);",formatted:"return Math.max.apply(null,input);",timesCorrect:0,timesIncorrect:0}
+{code:"return Math.min.apply(null,input);",formatted:"return Math.min.apply(null,input);",timesCorrect:0,timesIncorrect:0}
+{code:"return Math.round(Math.max.apply(null,input) / Math.min.apply(null,input));",formatted:"return Math.round(Math.max.apply(null,input) / Math.min.apply(null,input));",timesCorrect:0,timesIncorrect:0}
+{code:"return Math.max.apply(null,input) + Math.min.apply(null,input);",formatted:"return Math.max.apply(null,input) + Math.min.apply(null,input);",timesCorrect:0,timesIncorrect:0}
+{code:"return Math.max.apply(null,input) - Math.min.apply(null,input);",formatted:"return Math.max.apply(null,input) - Math.min.apply(null,input);",timesCorrect:0,timesIncorrect:0}
+{code:"return Math.max.apply(null,input) * Math.min.apply(null,input);",formatted:"return Math.max.apply(null,input) * Math.min.apply(null,input);",timesCorrect:0,timesIncorrect:0}
+{code:"var min = Math.min.apply(null,input); return min << 2;",formatted:"var min = Math.min.apply(null,input); return min << 2;",timesCorrect:0,timesIncorrect:0}
+{code:"var min = Math.min.apply(null,input); return min * 17;",formatted:"var min = Math.min.apply(null,input); return min * 17;",timesCorrect:0,timesIncorrect:0}
+{code:"var min = Math.min.apply(null,input); var max = Math.max.apply(null,input); return max << min;",formatted:"var min = Math.min.apply(null,input); var max = Math.max.apply(null,input); return max << min;",timesCorrect:0,timesIncorrect:0}
+{code:"return Math.max.apply(null,input) > 5 ? 1 : 0;",formatted:"return Math.max.apply(null,input) > 5 ? 1 : 0;",timesCorrect:0,timesIncorrect:0}
+{code:"return Math.min.apply(null,input) > 5 ? 1 : 0;",formatted:"return Math.min.apply(null,input) > 5 ? 1 : 0;",timesCorrect:0,timesIncorrect:0}
+{code:"return Math.round(input.reduce(function(a,b) { return a+b; })/input.length);",formatted:"return Math.round(input.reduce(function(a,b) { return a+b; })/input.length);",timesCorrect:0,timesIncorrect:0}
+{code:"return Math.max.apply(null,input) % Math.min.apply(null,input);",formatted:"return Math.max.apply(null,input) % Math.min.apply(null,input);",timesCorrect:0,timesIncorrect:0}
+{code:"return Math.round(input.reduce(function(a,b){return a + b/10},0))",formatted:"return Math.round(input.reduce(function(a,b){return a + b/10},0))",timesCorrect:0,timesIncorrect:0}
+{code:"return input.reduce(function(a,b){return a + b%2 == 0 ? b : 0},0)",formatted:"return input.reduce(function(a,b){return a + b%2 == 0 ? b : 0},0)",timesCorrect:0,timesIncorrect:0}
+{code:"return input.reduce(function(a,b){return a + b%2 == 1 ? b : 0},0)",formatted:"return input.reduce(function(a,b){return a + b%2 == 1 ? b : 0},0)",timesCorrect:0,timesIncorrect:0}
+{code:"return input.reduce(function(a,b){return a + b%2},0)",formatted:"return input.reduce(function(a,b){return a + b%2},0)",timesCorrect:0,timesIncorrect:0}
+{code:"return Math.max.apply(null,input) % Math.min.apply(null,input)",formatted:"return Math.max.apply(null,input) % Math.min.apply(null,input)",timesCorrect:0,timesIncorrect:0}
+{code:"return input.length",formatted:"return input.length",timesCorrect:0,timesIncorrect:0}
+{code:"return input.reduce(function(a,b,idx){a + b >= idx ? b - idx : b},0)",formatted:"return input.reduce(function(a,b,idx){a + b >= idx ? b - idx : b},0)",timesCorrect:0,timesIncorrect:0}
