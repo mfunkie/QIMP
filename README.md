@@ -1,5 +1,13 @@
 QIMP
 ====
+
+License
+------------------
+This software is liscensed dual licensed under  MIT and GPL3 licenses
+Contact BoomTown for additional licensing options.
+© BoomTown 2013
+
+
 Installing and Running
 ---------------------
 Installing and running QIMP is easy.
