@@ -85,12 +85,13 @@ var GameState = (function(){
 		this.body = body;
 		this.bodyIndex = bodyIndex;
 		this.questionsIndex = questionsIndex;
+		return this;
 	}
 
 	var QuestionBody = function(inputs, correctOutput, timePerQuestion){
-		this.input = inputs
-		this.output = correctOutput
-		this.duration = self.settings.timePerQuestion
+		this.input = inputs;
+		this.output = correctOutput;
+		this.duration = self.settings.timePerQuestion;
 		this.textQuestions = [];
 		this.questionIndex = -1;
 		this.questionCount = -1;
@@ -102,9 +103,9 @@ var GameState = (function(){
 	//All calls must deffer until we've initialized
 	self.deffer = function(callback){
 		if(!self.initialized){
-			async.nextTick(function(){self.deffer(callback)})
+			async.nextTick(function(){self.deffer(callback)});
 		} else{
-			callback()
+			callback();
 		}
 	}
 
@@ -321,8 +322,8 @@ var GameState = (function(){
 	self._addPlayer = function(player,callback){
 		for(var i = 0 ; i < self.players.length;++i){
 			if(self.players[i].hash == player.hash){
-				self.players.splice(i,1)
-				break
+				self.players.splice(i,1);
+				break;
 			}
 		}
 
@@ -343,8 +344,8 @@ var GameState = (function(){
 					console.error("error sending admin update")
 				callback(true)
 			}
-		)
-	}
+		);
+	};
 
 	self._playerRequests = function(hash){
 		var player = self._getPlayer(hash);
@@ -362,7 +363,7 @@ var GameState = (function(){
 		self.gameRunning = true;
 
 		async.series(
-			[self._createQuestionSet,self._initializePlayers],
+			[self._createQuestionSet, self._initializePlayers],
 			function(err,obj){
 				if(err)
 					console.error("failed to start game");
@@ -370,7 +371,6 @@ var GameState = (function(){
 			}
 		);
 	}
-
 
 	//Loop through all the players and include them in the game
 	self._initializePlayers = function(callback){
@@ -458,12 +458,12 @@ var GameState = (function(){
 
 			//we need to randomly insert the correct question into the body
 			correctPosition = Math.floor(Math.random()*4)
-			body.textQuestions.splice(correctPosition,0,self.questions[index].formatted)
+			body.textQuestions.splice(correctPosition, 0, self.questions[index].formatted);
 			var gameQuestion = new GameQuestion(body, correctPosition, index);
 
-			console.log("done generating question %s", index)
+			console.log("done generating question %s", index);
 
-			cb(null, gameQuestion)
+			cb(null, gameQuestion);
 		}
 
 		console.log("still generating questions");
@@ -474,7 +474,7 @@ var GameState = (function(){
 			if(err)
 				console.error("failed to generate questions");
 			len = newSet.length;
-			for(i = 0;i<len;++i){
+			for(i = 0; i < len; ++i){
 				newSet[i].body.questionIndex = len-i-1;
 				newSet[i].body.questionCount = len;
 			}
@@ -500,14 +500,14 @@ var GameState = (function(){
 		if(self.questionSet == null || !self.questionRunning)
 			return
 
-		var currentTime = new Date()
+		var currentTime = new Date();
 
-		var points = 0
-		var player = self._getPlayer(hash)
+		var points = 0;
+		var player = self._getPlayer(hash);
 		if(player == null || player.answered)
-			return
+			return;
 
-		player.answered = true
+		player.answered = true;
 		if(answerIndex == self.currentQuestion.bodyIndex){
 			//100 points per question, decreasing with every second that passes by
 			var timeDiff = (currentTime.getTime() - self.questionTime.getTime()) / (1000 * self.settings.timePerQuestion)
@@ -521,25 +521,26 @@ var GameState = (function(){
 		}
 	}
 
-
 	//self initialise and load settings and question collection
 
 	self._init = function(){
 		universalModule = require('./universal');
 		//these need to complete before the module is initialized
-		async.parallel([
-			function(callback){
-				schema.loadSettings(function(settingsObj){
-					self.settings = settingsObj;
-					callback(null);
-				});
-			},
-			function(callback){
-				schema.loadQuestions(function(questionsArr){
-					self.questions = questionsArr;
-					callback(null);
-				});
-			}],
+		async.parallel(
+			[
+				function(callback){
+					schema.loadSettings(function(settingsObj){
+						self.settings = settingsObj;
+						callback(null);
+					});
+				},
+				function(callback){
+					schema.loadQuestions(function(questionsArr){
+						self.questions = questionsArr;
+						callback(null);
+					});
+				}
+			],
 			function(err){
 				if(err)
 					console.error("error initializing game state")
