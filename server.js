@@ -1,43 +1,49 @@
+var argv,
+	port,
+	mongoose,
+	universalSocket,
+	connect,
+	urlrouter,
+	http,
+	io,
+	app,
+	server,
+	sockets,
+	gamestate;
 
-
-var argv = require('optimist').argv
-
-var port = null
+argv = require('optimist').argv;
 
 try{
-    port = parseInt(argv.p)
-    if(isNaN(port))
-	port = 8088
-}catch(err){
-    port =8088
+	port = parseInt(argv.p, 10);
+} finally {
+	port = port || 8088;
 }
 
-
 //MongoDB Code
-var mongoose = require('mongoose')
-var universalSocket = require('./server/universal')
+mongoose = require('mongoose');
+universalSocket = require('./server/universal');
 
 mongoose.connect('localhost','qimp')
 
-
 //Connect middleware handles static file handling
-var connect = require('connect')
-, urlrouter = require('urlrouter')
-, http = require('http') 
-, io = require('socket.io')
+connect = require('connect');
+urlrouter = require('urlrouter');
+http = require('http');
+io = require('socket.io');
+
 var app = connect()
-    .use(connect.static(__dirname + '/html'))
-    .use(connect.static(__dirname + '/js'))
-    .use(connect.static(__dirname + '/css'))
-    .use(connect.static(__dirname + '/img'));
+	.use(connect.static(__dirname + '/html'))
+	.use(connect.static(__dirname + '/js'))
+	.use(connect.static(__dirname + '/css'))
+	.use(connect.static(__dirname + '/img'));
 
 //Socket.IO 
-var server = http.createServer(app).listen(port)
-var sockets = io.listen(server).sockets;
+server = http.createServer(app).listen(port);
+sockets = io.listen(server).sockets;
 
-var gamestate = require('./server/gamestate').createGameState()
- 
+gamestate = require('./server/gamestate').createGameState();
+
 sockets.on('connection',function(socket){
-    universalSocket.initialize(socket,gamestate)
-})
+	universalSocket.initialize(socket,gamestate)
+});
 
