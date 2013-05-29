@@ -18,16 +18,16 @@
    </head>
    <body>
       <div class="site-wrapper" ng-controller="AdminController">
-   		<header class="site-header"><img class="logo" src="/qimp-logo.png"/></header>
-   		<section id="console" class="js-container form" ng-show="currentSection == 'console'">
+         <header class="site-header"><img class="logo" src="/qimp-logo.png"/></header>
+         <section id="console" class="js-container form" ng-show="currentSection == 'console'">
             <input type="button" value="Start Game" ng-click="start_clicked()" />
             <input type="button" value="Next Question" ng-click="next_clicked()" />
             <div class="log">
-               <ul  ng-repeat="line in theLog">
+               <ul ng-repeat="line in theLog">
                   {{line}}
                </ul>
             </div>
-   		</section>
+         </section>
          <footer class="site-footer">
             <p><img class="footer-logo" src="/qimp-footer-logo.png"/> Code trivia brought to you by <a href="http://www.boomtownroi.com" target="_new">BoomTown</a>.</p>
          </footer>

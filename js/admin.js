@@ -8,15 +8,15 @@ function AdminController($scope)
 
     $scope.start_clicked = function()
     {
-    	$scope.socket.emit("start game", {});
-    	$scope.log("start game clicked");
+        $scope.socket.emit("start game", {});
+        $scope.log("start game clicked");
     }
 
     $scope.next_clicked = function()
     {
 
-    	$scope.socket.emit("start question", {your:"mom"});
-    	$scope.log("next question clicked");
+        $scope.socket.emit("start question", {your:"mom"});
+        $scope.log("next question clicked");
     }
 
     $scope.log = function(toLog)

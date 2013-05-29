@@ -12,6 +12,7 @@ function QuizController($scope)
     $scope.valid_token = false;
     $scope.try_to_join = false;
     $scope.time_expired = false;
+    
     window.scope = $scope; //TODO: remove this before release
 
     $scope.join_clicked = function() {
@@ -44,11 +45,11 @@ function QuizController($scope)
     }
 
     $scope.option_selected = function(index) {
-    	if($scope.selectedIndex == -1 && !$scope.time_expired)
-    	{
-    		$scope.selectedIndex = index;
+        if($scope.selectedIndex == -1 && !$scope.time_expired)
+        {
+            $scope.selectedIndex = index;
             $scope.socket.emit("answer question",{answer:index, hash:$scope.token});
-    	}
+        }
     }
 
     $scope.option_is_selected =  function(index, invert) {

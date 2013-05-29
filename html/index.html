@@ -19,64 +19,64 @@
    </head>
    <body>
       <div class="site-wrapper" ng-controller="QuizController">
-   		<header class="site-header"><img class="logo" src="/qimp-logo.png"/></header>
-   		<section id="join" class="form-join" ng-show="is_current_section('join')">
+         <header class="site-header"><img class="logo" src="/qimp-logo.png"/></header>
+         <section id="join" class="form-join" ng-show="is_current_section('join')">
             <p class="small-txt small-bm" ng-hide="credentials_are_valid()">Enter a handle longer than 2 characters and a valid email address to join game.</p>
-   			<input type="text" placeholder="handle" id="handle" autocomplete="off" ng-model="handle" />
-   			<input type="text" placeholder="email" id="email" autocomplete="off" ng-model="email" />
+            <input type="text" placeholder="handle" id="handle" autocomplete="off" ng-model="handle" />
+            <input type="text" placeholder="email" id="email" autocomplete="off" ng-model="email" />
             <input type="button" value="Join Next Game" id="join_button" ng-click="join_clicked()" ng-disabled="!credentials_are_valid()" />
             <input type="button" value="View Leader Board" id="leader_board_button" ng-click="leader_board_clicked()" ng-disabled="!credentials_are_valid()" />
             <label clall="checkbox-label" title="Remember my credentials"><input type="checkbox" id="remember_creds" ng-model="remember_creds"> Remember my credentials</label>
-   		</section>
-   		<section id="limbo" class="limboboxes" ng-show="is_current_section('limbo')">
+         </section>
+         <section id="limbo" class="limboboxes" ng-show="is_current_section('limbo')">
             <p class="small-txt small-bm" ng-show="gameStarting">Your game will be starting soon!</p>
-   			<div class="limbobox">W</div>
-   			<div class="limbobox">A</div>
-   			<div class="limbobox">I</div>
-   			<div class="limbobox">T</div>
-   			<div class="limbobox">I</div>
-   			<div class="limbobox">N</div>
-   			<div class="limbobox">G</div>
-   		</section>
-   		<section id="question" ng-show="is_current_section('question')">
-   			<div id="progressbar" class="progressbar group"><div id="progressbarlabel" class="progressbar-label">progress bar</div></div>
+            <div class="limbobox">W</div>
+            <div class="limbobox">A</div>
+            <div class="limbobox">I</div>
+            <div class="limbobox">T</div>
+            <div class="limbobox">I</div>
+            <div class="limbobox">N</div>
+            <div class="limbobox">G</div>
+         </section>
+         <section id="question" ng-show="is_current_section('question')">
+            <div id="progressbar" class="progressbar group"><div id="progressbarlabel" class="progressbar-label">progress bar</div></div>
             <div id="input" class="box--io"><span class="io-label">Input:</span>{{question.input}}</div>
-   			<ul id="choices" class="group">
-   				<li class="box--choice" ng-class="{'is-selected':option_is_selected($index, false), 'is-not-selected':option_is_selected($index, true), 'is-correct':option_is_correct($index, false), 'is-not-correct':option_is_correct($index, true)}" ng-repeat="option in question.textQuestions" ng-click="option_selected($index)">{{option}}</li>
-   			</ul>
+            <ul id="choices" class="group">
+               <li class="box--choice" ng-class="{'is-selected':option_is_selected($index, false), 'is-not-selected':option_is_selected($index, true), 'is-correct':option_is_correct($index, false), 'is-not-correct':option_is_correct($index, true)}" ng-repeat="option in question.textQuestions" ng-click="option_selected($index)">{{option}}</li>
+            </ul>
             <div id="output" class="box--io"><span class="io-label">Output:</span>{{question.output}}</div>
-   		</section>
-   		<section id="scores" ng-show="is_current_section('scores')">
+         </section>
+         <section id="scores" ng-show="is_current_section('scores')">
             <div class="align-center"><input type="button" value="Join Next Game" ng-click="join_clicked()" /></div>
             <div ng-class="{'score-group':show_current_scores()}">
-      			<ol id="current_game" class="score-chart" ng-show="show_current_scores()">
-      				<h1 class="score-chart-title--scores">Scores</h1>
+               <ol id="current_game" class="score-chart" ng-show="show_current_scores()">
+                  <h1 class="score-chart-title--scores">Scores</h1>
                   <li ng-repeat="scr in scores">
-      					<ul class="score-chart-row">
-      						<li>
-      							{{scr.handle}}&nbsp;
-      						</li>
-      						<li>
-      							{{scr.score}}&nbsp;
-      						</li>
-      					</ul>
-      				</li>
-      			</ol>
+                     <ul class="score-chart-row">
+                        <li>
+                           {{scr.handle}}&nbsp;
+                        </li>
+                        <li>
+                           {{scr.score}}&nbsp;
+                        </li>
+                     </ul>
+                  </li>
+               </ol>
                <ol id="overall" class="score-chart">
                   <h1 class="score-chart-title--leaderboard">Leaderboard</h1>
-      				<li ng-repeat="scr in leader_board">
-      					<ul class="score-chart-row">
-      						<li>
-      							{{scr.handle}}&nbsp;
-      						</li>
-      						<li>
-      							{{scr.score}}&nbsp;
-      						</li>
-      					</ul>
-      				</li>
-      			</ol>
+                  <li ng-repeat="scr in leader_board">
+                     <ul class="score-chart-row">
+                        <li>
+                           {{scr.handle}}&nbsp;
+                        </li>
+                        <li>
+                           {{scr.score}}&nbsp;
+                        </li>
+                     </ul>
+                  </li>
+               </ol>
             </div>
-   		</section>
+         </section>
          <footer class="site-footer">
             <p><img class="footer-logo" src="/qimp-footer-logo.png"/> Code trivia brought to you by <a href="http://www.boomtownroi.com" target="_new">BoomTown</a>.</p>
          </footer>
