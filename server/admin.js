@@ -1,18 +1,10 @@
 var gameState = null,
     _initializeAdmin;
 
-//Exports
-
-var Admin = {
-    socket: null
-}
-
 _initializeAdmin = function(socket,data,gs){
     gameState = gs;
-    var admin = Object.create(Admin);
 
-    admin.socket = socket;
-    gameState.addAdmin(admin);
+    gameState.addAdmin({ socket: socket });
     
     socket.on('start game',function(data){
         gameState.startGame(function(){
